@@ -1,0 +1,10 @@
+html {
+  font-size: 62%;
+}
+
+* > * {
+  box-sizing: border-box;
+  margin-top: 0;
+}
+
+/*# sourceMappingURL=styles.css.map */
