@@ -6,20 +6,47 @@ html
     margin-top: 0
 
 
-// breakpoints
+// Breakpoints
 $medium: 768px
 $large: 992px
 $x-large: 1200px
-$breakpoint: $large   
+$breakpoint: $x-large
+
+
+// Colors
+
+// Primary
+$very-dark-magenta: hsl(300 43% 22%)
+$soft-pink: hsl(333 80% 67%)
+
+//Neutral
+$dark-grayish-magenta: hsl(303 10% 53%)
+$light-grayish-magenta: hsl(300 24% 96%)
+$white: hsl(0 0% 100%)   
+
+
+// Fonts
+$font-stack: 'League Spartan', sans-serif
+
+$regular: 400
+$medium-weight: 500
+$bold: 700
+
+@mixin font ($size, $weight, $color)
+    font:
+        family: $font-stack
+        size: $size
+        weight: $weight
+    color: $color
 
 
 body
-    margin: 8rem 2rem
+    margin: 9rem 2rem
     background:
-        color: white
+        color: $white
 
     @media screen and (min-width: $breakpoint)
-        margin: 12rem 16rem
+        margin: 12rem 16.6rem
 
 
 // main
@@ -28,16 +55,17 @@ body
     display: grid
     grid-template-columns: 100%
     grid-template-rows: auto auto auto
-    grid-row-gap: 1rem
+    grid-row-gap: 3.75rem
     margin-right: auto
     margin-left: auto
     min-width: 33rem
     max-width: $medium
 
     @media screen and (min-width: $breakpoint)
-        grid-template-columns: 50% 1fr
+        grid-template-columns: 45% 1fr
         grid-template-rows: auto auto
-        grid-column-gap: 1rem
+        grid-column-gap: 2rem
+        grid-row-gap: 8rem
         max-width: none
 
 .txt-area
@@ -46,23 +74,33 @@ body
         grid-row: 1 / 2
 
 .txt-primary
+    margin-bottom: 3rem
+    line-height: .8
     text-align: center
+    @include font(4rem, $bold, $very-dark-magenta)
 
     @media screen and (min-width: $breakpoint)
+        margin-bottom: 2.6rem
+        line-height: .85
         text-align: left
+        font-size: 5.7rem
 
 .txt-secondary
+    margin-bottom: 0
+    line-height: 1.25
     text-align: center
+    @include font(1.8rem, $medium-weight, $dark-grayish-magenta)
 
     @media screen and (min-width: $breakpoint)
         text-align: left
+        font-size: 2rem
 
 .ratings-area
     display: flex
     flex-direction: column
     justify-content: center
     align-items: center
-    gap: 1rem
+    gap: 1.5rem
 
     @media screen and (min-width: $breakpoint)
         grid-column: 2 / 3
@@ -73,14 +111,23 @@ body
     flex-direction: column
     justify-content: center
     align-items: center
+    gap: 1.6rem
     width: 100%
     height: 8rem
     border-radius: 1rem
-    background-color: grey
+    background-color: $light-grayish-magenta
 
     @media screen and (min-width: $breakpoint)
         flex-direction: row
-        justify-content: space-around
+        justify-content: left
+        gap: 3rem
+        max-width: 44rem
+
+    &--top
+        align-self: flex-start
+
+    &--bottom
+        align-self: flex-end
 
     &__five-stars
         display: flex
@@ -89,17 +136,20 @@ body
         align-items: center
         gap: 1rem
 
+        @media screen and (min-width: $breakpoint)
+            margin-left: 3rem
+
     &__star
-        height: 1.6rem
+        height: auto
         width: 1.7rem
 
     &__rating
-        font-size: 1rem
+        @include font(1.75rem, $bold, $very-dark-magenta)
 
 .cards-area
     display: flex
     flex-direction: column
-    justify-content: center
+    justify-content: flex-start
     align-items: center
     gap: 1rem
 
@@ -107,21 +157,37 @@ body
         grid-column: 1 / 3
         grid-row: 2 / 3
         flex-direction: row
-        justify-content: space-around
+        justify-content: space-between
+        gap: 1rem
+        min-height: 30rem
 
 .card
-    padding: 1rem
-    background-color: purple
+    padding: 4rem
+    border-radius: 1rem
+    background-color: $very-dark-magenta
+
+    @media screen and (min-width: $breakpoint)
+        min-height: 23rem
+        max-width: 35rem
+
+    &--left
+        align-self: flex-start
+
+    &--right
+        align-self: flex-end
 
     &__person-row
         display: flex
         flex-direction: row
         justify-content: flex-start
-        align-item: center
-        gap: 1rem
+        align-items: center
+        gap: 2rem
+        margin-bottom: 2rem
 
     &__img
         display: block
+        height: auto
+        width: 4.2rem
         border: none
         border-radius: 50%
         overflow: hidden
@@ -131,13 +197,26 @@ body
         flex-direction: column
         justify-content: center
         align-items: flex-start
-        gap: 1rem
+        gap: .4rem
 
     &__name
-        font-size: 1rem
+        @include font(1.6rem, $bold, $white)
+
+        @media screen and (min-width: $breakpoint)
+            font-size: 1.6rem
+
+    &__buyer-status
+        @include font(1.6rem, $regular, $soft-pink)
+
+        @media screen and (min-width: $breakpoint)
+            font-size: 1.6rem
 
     &__quote
-        font-size: 1rem
+        line-height: 1.5
+        @include font(1.6rem, $medium-weight, $white)
+
+        @media screen and (min-width: $breakpoint)
+            font-size: 1.6rem
 
 
 // footer
