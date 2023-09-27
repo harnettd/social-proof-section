@@ -10,6 +10,7 @@ html
 
 
 // Breakpoints
+$small: 576px
 $medium: 768px
 $large: 992px
 $x-large: 1200px
@@ -30,7 +31,6 @@ $white: hsl(0 0% 100%)
 
 // Fonts
 $font-stack: 'League Spartan', sans-serif
-
 $regular: 400
 $medium-weight: 500
 $bold: 700
@@ -44,60 +44,72 @@ $bold: 700
 
 
 body
-    margin: 8.3rem 2rem
+    margin: 0
     background:
         color: $white
 
-    @media screen and (min-width: $breakpoint)
-        margin: 11.8rem 16.5rem
-
 
 // main
+
+#main
+    margin-top: 8.3rem
+    margin-bottom: 1.5rem
+    min-width: 37.5rem
+
+    @media screen and (min-width: $breakpoint)
+        margin-top: 11.8rem
 
 .container-grid
     display: grid
     grid-template-columns: 100%
     grid-template-rows: auto auto auto
     grid-row-gap: 3.75rem
-    margin-right: auto
     margin-left: auto
-    min-width: 33rem
-    max-width: $medium
+    margin-right: auto
+    width: 32.5rem
 
     @media screen and (min-width: $breakpoint)
         grid-template-columns: 40% 1fr
         grid-template-rows: auto auto
         grid-column-gap: 12.6rem
         grid-row-gap: 7rem
-        max-width: none
+        width: 111rem
 
 .txt-area
     @media screen and (min-width: $breakpoint)
         grid-column: 1 / 2
         grid-row: 1 / 2
 
-.txt-primary
-    margin-bottom: 2.18rem
-    line-height: .85
-    text-align: center
-    @include font(3.76rem, $bold, $very-dark-magenta)
+%txt-primary-structure
+    margin-bottom: 2.09rem
 
     @media screen and (min-width: $breakpoint)
         margin-bottom: 3rem
-        line-height: .85
-        text-align: left
-        font-size: 5.55rem
-        letter-spacing: -.18rem
 
-.txt-secondary
-    margin-bottom: 0
-    line-height: 1.41
+.txt-primary
+    @extend %txt-primary-structure
+    @include font(3.76rem, $bold, $very-dark-magenta)
+    line-height: .85
     text-align: center
-    @include font(1.77rem, $medium-weight, $dark-grayish-magenta)
 
     @media screen and (min-width: $breakpoint)
+        font-size: 5.55rem
+        line-height: .85
         text-align: left
-        font-size:1.9rem
+        letter-spacing: -.18rem
+
+%txt-secondary-structure
+    margin-bottom: 0
+
+.txt-secondary
+    @extend %txt-secondary-structure
+    @include font(1.74rem, $medium-weight, $dark-grayish-magenta)
+    line-height: 1.47
+    text-align: center
+
+    @media screen and (min-width: $breakpoint)
+        font-size: 1.9rem
+        text-align: left
         line-height: 1.3
         letter-spacing: -.065rem
 
@@ -117,7 +129,7 @@ body
         margin-bottom: 0
         padding-top: 0.9rem
 
-.rating-row
+%ratings-row-structure
     display: flex
     flex-direction: column
     justify-content: center
@@ -125,8 +137,6 @@ body
     gap: 1.6rem
     width: 100%
     height: 7.8rem
-    border-radius: 1rem
-    background-color: $light-grayish-magenta
 
     @media screen and (min-width: $breakpoint)
         flex-direction: row
@@ -134,6 +144,11 @@ body
         gap: 3.3rem
         max-width: 44.5rem
         height: 5.5rem
+
+.rating-row
+    @extend %ratings-row-structure
+    border-radius: 1rem
+    background-color: $light-grayish-magenta
 
     &--top
         @media screen and (min-width: $breakpoint)
@@ -146,7 +161,7 @@ body
     &__five-stars
         display: flex
         flex-direction: row
-        justify-content: center
+        justify-content: flex-start
         align-items: center
         gap: .8rem
 
@@ -154,8 +169,8 @@ body
             margin-left: 3.2rem
 
     &__star
-        height: auto
         width: 1.7rem
+        height: auto
 
     &__rating
         @include font(1.7rem, $bold, $very-dark-magenta)
@@ -180,16 +195,19 @@ body
         justify-content: space-between
         min-height: 26.6rem
 
-.card
+%card-structure
     padding: 4rem 3rem 2.8rem 3.2rem
-    width: 32.9rem
-    border-radius: 1rem
-    background-color: $very-dark-magenta
+    width: 100%
 
     @media screen and (min-width: $breakpoint)
         padding-top: 4.05rem
         height: 23.4rem
         width: 35rem
+
+.card
+    @extend %card-structure
+    border-radius: 1rem
+    background-color: $very-dark-magenta
 
     &--left
         @media screen and (min-width: $breakpoint)
@@ -210,29 +228,30 @@ body
         @media screen and (min-widthL $breakpoint)
             gap: 2.1rem
 
-    &__img
+    &__img-structure
         display: block
-        height: auto
         width: 4.2rem
-        border: none
-        border-radius: 50%
+        height: auto
         overflow: hidden
 
-    &__identity-col
-        // display: flex
-        // flex-direction: column
-        // justify-content: flex-start
-        // align-items: flex-start
-        // gap: .4rem
+    &__img
+        @extend .card__img-structure
+        border: none
+        border-radius: 50%
 
-    &__name
+    &__name-structure
         margin-top: 0.5rem
         margin-bottom: 0.4rem
-        @include font(1.67rem, $bold, $white)
 
         @media screen and (min-width: $breakpoint)
             margin-top: 0.2rem
             margin-bottom: 0.4rem
+
+    &__name
+        @extend .card__name-structure
+        @include font(1.67rem, $bold, $white)
+
+        @media screen and (min-width: $breakpoint)
             font-size: 1.7rem
 
     &__buyer-status
@@ -242,8 +261,8 @@ body
             font-size: 1.69rem
 
     &__quote
-        line-height: 1.33
         @include font(1.63rem, $medium-weight, $white)
+        line-height: 1.33
 
         @media screen and (min-width: $breakpoint)
             font-size: 1.63rem
@@ -261,18 +280,18 @@ body
 
 // Development redefinition level
 
-body
-    background:
-        // image: url("./design/mobile-design.jpg")
-        position: left top
-        repeat: no-repeat
-        // size: 37.5rem auto
+// body
+//     background:
+//         image: url("./design/mobile-design.jpg")
+//         position: left top
+//         repeat: no-repeat
+//         size: 37.5rem auto
 
-    @media screen and (min-width: $breakpoint)
-        background:
-            image: url("./design/desktop-design.jpg")
-            size: 144rem auto
+//     @media screen and (min-width: $breakpoint)
+//         background:
+//             image: url("./design/desktop-design.jpg")
+//             size: 144rem auto
 
-.container-grid
-    @media screen and (min-width: $breakpoint)
-      opacity: .5
+// .container-grid
+//     @media screen and (min-width: $breakpoint)
+//       opacity: .5
