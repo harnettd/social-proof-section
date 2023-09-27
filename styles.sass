@@ -1,5 +1,8 @@
 html
-    font-size: 62%
+    font-size: 62.5%
+
+
+// CSS reset
 
 * > *
     box-sizing: border-box
@@ -41,12 +44,12 @@ $bold: 700
 
 
 body
-    margin: 9rem 2rem
+    margin: 8.3rem 2rem
     background:
         color: $white
 
     @media screen and (min-width: $breakpoint)
-        margin: 12rem 16.6rem
+        margin: 11.8rem 16.5rem
 
 
 // main
@@ -62,10 +65,10 @@ body
     max-width: $medium
 
     @media screen and (min-width: $breakpoint)
-        grid-template-columns: 45% 1fr
+        grid-template-columns: 40% 1fr
         grid-template-rows: auto auto
-        grid-column-gap: 2rem
-        grid-row-gap: 8rem
+        grid-column-gap: 12.6rem
+        grid-row-gap: 7rem
         max-width: none
 
 .txt-area
@@ -74,37 +77,45 @@ body
         grid-row: 1 / 2
 
 .txt-primary
-    margin-bottom: 3rem
-    line-height: .8
+    margin-bottom: 2.18rem
+    line-height: .85
     text-align: center
-    @include font(4rem, $bold, $very-dark-magenta)
+    @include font(3.76rem, $bold, $very-dark-magenta)
 
     @media screen and (min-width: $breakpoint)
-        margin-bottom: 2.6rem
+        margin-bottom: 3rem
         line-height: .85
         text-align: left
-        font-size: 5.7rem
+        font-size: 5.55rem
+        letter-spacing: -.18rem
 
 .txt-secondary
     margin-bottom: 0
-    line-height: 1.25
+    line-height: 1.41
     text-align: center
-    @include font(1.8rem, $medium-weight, $dark-grayish-magenta)
+    @include font(1.77rem, $medium-weight, $dark-grayish-magenta)
 
     @media screen and (min-width: $breakpoint)
         text-align: left
-        font-size: 2rem
+        font-size:1.9rem
+        line-height: 1.3
+        letter-spacing: -.065rem
 
 .ratings-area
     display: flex
     flex-direction: column
-    justify-content: center
+    justify-content: flex-start
     align-items: center
-    gap: 1.5rem
+    gap: 1.7rem
+    margin-bottom: 1rem
 
     @media screen and (min-width: $breakpoint)
         grid-column: 2 / 3
         grid-row: 1 / 2
+        justify-content: space-evenly
+        gap: 0
+        margin-bottom: 0
+        padding-top: 0.9rem
 
 .rating-row
     display: flex
@@ -113,76 +124,91 @@ body
     align-items: center
     gap: 1.6rem
     width: 100%
-    height: 8rem
+    height: 7.8rem
     border-radius: 1rem
     background-color: $light-grayish-magenta
 
     @media screen and (min-width: $breakpoint)
         flex-direction: row
-        justify-content: left
-        gap: 3rem
-        max-width: 44rem
+        justify-content: flex-start
+        gap: 3.3rem
+        max-width: 44.5rem
+        height: 5.5rem
 
     &--top
-        align-self: flex-start
+        @media screen and (min-width: $breakpoint)
+          align-self: flex-start
 
     &--bottom
-        align-self: flex-end
+        @media screen and (min-width: $breakpoint)
+          align-self: flex-end
 
     &__five-stars
         display: flex
         flex-direction: row
         justify-content: center
         align-items: center
-        gap: 1rem
+        gap: .8rem
 
         @media screen and (min-width: $breakpoint)
-            margin-left: 3rem
+            margin-left: 3.2rem
 
     &__star
         height: auto
         width: 1.7rem
 
     &__rating
-        @include font(1.75rem, $bold, $very-dark-magenta)
+        @include font(1.7rem, $bold, $very-dark-magenta)
+
+        &--top
+          margin-left: 1rem     
+
+          @media screen and (min-width: $breakpoint)
+            margin-left: 0       
 
 .cards-area
     display: flex
     flex-direction: column
     justify-content: flex-start
     align-items: center
-    gap: 1rem
+    gap: 1.9rem
 
     @media screen and (min-width: $breakpoint)
         grid-column: 1 / 3
         grid-row: 2 / 3
         flex-direction: row
         justify-content: space-between
-        gap: 1rem
-        min-height: 30rem
+        min-height: 26.6rem
 
 .card
-    padding: 4rem
+    padding: 4rem 3rem 2.8rem 3.2rem
+    width: 32.9rem
     border-radius: 1rem
     background-color: $very-dark-magenta
 
     @media screen and (min-width: $breakpoint)
-        min-height: 23rem
-        max-width: 35rem
+        padding-top: 4.05rem
+        height: 23.4rem
+        width: 35rem
 
     &--left
-        align-self: flex-start
+        @media screen and (min-width: $breakpoint)
+          align-self: flex-start
 
     &--right
-        align-self: flex-end
+        @media screen and (min-width: $breakpoint)
+          align-self: flex-end
 
     &__person-row
         display: flex
         flex-direction: row
         justify-content: flex-start
-        align-items: center
-        gap: 2rem
-        margin-bottom: 2rem
+        align-items: flex-start
+        gap: 2.2rem
+        margin-bottom: 2.7rem
+
+        @media screen and (min-widthL $breakpoint)
+            gap: 2.1rem
 
     &__img
         display: block
@@ -193,30 +219,34 @@ body
         overflow: hidden
 
     &__identity-col
-        display: flex
-        flex-direction: column
-        justify-content: center
-        align-items: flex-start
-        gap: .4rem
+        // display: flex
+        // flex-direction: column
+        // justify-content: flex-start
+        // align-items: flex-start
+        // gap: .4rem
 
     &__name
-        @include font(1.6rem, $bold, $white)
+        margin-top: 0.5rem
+        margin-bottom: 0.4rem
+        @include font(1.67rem, $bold, $white)
 
         @media screen and (min-width: $breakpoint)
-            font-size: 1.6rem
+            margin-top: 0.2rem
+            margin-bottom: 0.4rem
+            font-size: 1.7rem
 
     &__buyer-status
-        @include font(1.6rem, $regular, $soft-pink)
+        @include font(1.67rem, $medium-weight, $soft-pink)
 
         @media screen and (min-width: $breakpoint)
-            font-size: 1.6rem
+            font-size: 1.69rem
 
     &__quote
-        line-height: 1.5
-        @include font(1.6rem, $medium-weight, $white)
+        line-height: 1.33
+        @include font(1.63rem, $medium-weight, $white)
 
         @media screen and (min-width: $breakpoint)
-            font-size: 1.6rem
+            font-size: 1.63rem
 
 
 // footer
@@ -227,3 +257,22 @@ body
 
 .attribution a 
     color: hsl(228, 45%, 44%)
+
+
+// Development redefinition level
+
+body
+    background:
+        // image: url("./design/mobile-design.jpg")
+        position: left top
+        repeat: no-repeat
+        // size: 37.5rem auto
+
+    @media screen and (min-width: $breakpoint)
+        background:
+            image: url("./design/desktop-design.jpg")
+            size: 144rem auto
+
+.container-grid
+    @media screen and (min-width: $breakpoint)
+      opacity: .5
