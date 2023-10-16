@@ -8,19 +8,25 @@ html {
 }
 
 body {
-  margin: 0;
+  margin: 8.3rem 0 0 0;
+  background-image: url("./images/bg-pattern-top-mobile.svg"), url("./images/bg-pattern-bottom-mobile.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: center top, center bottom;
+  background-size: 37.4rem auto, 37.5rem auto;
   background-color: hsl(0, 0%, 100%);
+}
+@media screen and (min-width: 1200px) {
+  body {
+    margin-top: 11.3rem;
+    min-height: 68.7rem;
+    background-image: url("./images/bg-pattern-top-desktop.svg"), url("./images/bg-pattern-bottom-desktop.svg");
+    background-position: left top, right bottom;
+    background-size: 58.4rem auto, 108.5rem auto;
+  }
 }
 
 #main {
-  margin-top: 8.3rem;
-  margin-bottom: 1.5rem;
   min-width: 37.5rem;
-}
-@media screen and (min-width: 1200px) {
-  #main {
-    margin-top: 11.8rem;
-  }
 }
 
 .container-grid {

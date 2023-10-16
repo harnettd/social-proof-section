@@ -43,21 +43,35 @@ $bold: 700
     color: $color
 
 
+// body
+
+$body-mt-desktop: 11.3rem
+
 body
-    margin: 0
+    margin: 8.3rem 0 0 0
+
     background:
+        image: url("./images/bg-pattern-top-mobile.svg"), url("./images/bg-pattern-bottom-mobile.svg")
+        repeat: no-repeat, no-repeat
+        position: center top, center bottom
+        size: 37.4rem auto, 37.5rem auto
         color: $white
 
+    @media screen and (min-width: $breakpoint)
+        margin-top: $body-mt-desktop
+        min-height: 80rem - $body-mt-desktop
 
+        background:
+            image: url("./images/bg-pattern-top-desktop.svg"), url("./images/bg-pattern-bottom-desktop.svg")
+            position: left top, right bottom
+            size: 58.4rem auto, 108.5rem auto
+
+    
 // main
 
 #main
-    margin-top: 8.3rem
-    margin-bottom: 1.5rem
+    // margin-bottom: 1.5rem
     min-width: 37.5rem
-
-    @media screen and (min-width: $breakpoint)
-        margin-top: 11.8rem
 
 .container-grid
     display: grid
