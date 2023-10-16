@@ -45,10 +45,12 @@ $bold: 700
 
 // body
 
+$body-mt-mobile: 8.3rem
 $body-mt-desktop: 11.3rem
 
 body
-    margin: 8.3rem 0 0 0
+    margin: $body-mt-mobile 0 0 0
+    min-height: 153rem - $body-mt-mobile 
 
     background:
         image: url("./images/bg-pattern-top-mobile.svg"), url("./images/bg-pattern-bottom-mobile.svg")
@@ -63,10 +65,10 @@ body
 
         background:
             image: url("./images/bg-pattern-top-desktop.svg"), url("./images/bg-pattern-bottom-desktop.svg")
-            position: left top, right bottom
+            position-x: left, right
             size: 58.4rem auto, 108.5rem auto
 
-    
+
 // main
 
 #main
