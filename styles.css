@@ -18,8 +18,8 @@ body {
 }
 @media screen and (min-width: 1200px) {
   body {
-    margin-top: 11.3rem;
-    min-height: 68.7rem;
+    margin-top: 11.8rem;
+    min-height: 68.2rem;
     background-image: url("./images/bg-pattern-top-desktop.svg"), url("./images/bg-pattern-bottom-desktop.svg");
     background-position-x: left, right;
     background-size: 58.4rem auto, 108.5rem auto;
@@ -305,6 +305,25 @@ body {
 
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+body {
+  background-image: url("./design/mobile-design.jpg");
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: 37.5rem auto;
+}
+@media screen and (min-width: 1200px) {
+  body {
+    background-image: url("./design/desktop-design.jpg");
+    background-size: 144rem auto;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container-grid {
+    opacity: 0.5;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
